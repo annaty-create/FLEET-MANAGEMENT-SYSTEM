@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Route Optimization - Fleet Management System</title>
+    <!-- Link to External CSS File -->
+    <link rel="stylesheet" href="public/css/route-optimization.css" />
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h2>Fleet Management</h2>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="gps.html">GPS Tracking</a></li>
+          <li><a href="drivers.html">Driver Performance</a></li>
+          <li><a href="route.html" class="active">Route Optimization</a></li>
+          <li><a href="maintenance.html">Maintenance</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <header>
+        <h1>Route Optimization</h1>
+      </header>
+
+      <!-- Optimized Routes Table -->
+      <section class="optimized-routes">
+        <h2>Optimized Routes</h2>
+        <table class="route-table">
+          <thead>
+            <tr>
+              <th>Route ID</th>
+              <th>Start Location</th>
+              <th>End Location</th>
+              <th>Estimated Time</th>
+              <th>Distance</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="route-log">
+            <tr>
+              <td>ROUTE001</td>
+              <td>Nairobi</td>
+              <td>Mombasa</td>
+              <td>6 hours</td>
+              <td>500 km</td>
+              <td>Optimized</td>
+            </tr>
+            <tr>
+              <td>ROUTE002</td>
+              <td>Nairobi</td>
+              <td>Kisumu</td>
+              <td>5 hours</td>
+              <td>300 km</td>
+              <td>In Progress</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Log New Route -->
+      <section class="log-route">
+        <h2>Log New Route</h2>
+        <form id="route-form" class="route-form">
+          <label for="start-location">Start Location:</label>
+          <input
+            type="text"
+            id="start-location"
+            placeholder="Enter Start Location"
+            required
+          />
+
+          <label for="end-location">End Location:</label>
+          <input
+            type="text"
+            id="end-location"
+            placeholder="Enter End Location"
+            required
+          />
+
+          <label for="estimated-time">Estimated Time:</label>
+          <input
+            type="text"
+            id="estimated-time"
+            placeholder="Estimated Time (e.g., 5 hours)"
+            required
+          />
+
+          <label for="distance">Distance:</label>
+          <input
+            type="text"
+            id="distance"
+            placeholder="Enter Distance (in km)"
+            required
+          />
+
+          <label for="route-status">Status:</label>
+          <select id="route-status">
+            <option value="Pending">Pending</option>
+            <option value="Optimized">Optimized</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+          </select>
+
+          <button type="button" onclick="addRoute()">Add Route</button>
+        </form>
+      </section>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+      function addRoute() {
+        const startLocation = document.getElementById('start-location').value;
+        const endLocation = document.getElementById('end-location').value;
+        const estimatedTime = document.getElementById('estimated-time').value;
+        const distance = document.getElementById('distance').value;
+        const routeStatus = document.getElementById('route-status').value;
+
+        if (
+          startLocation &&
+          endLocation &&
+          estimatedTime &&
+          distance &&
+          routeStatus
+        ) {
+          const table = document.getElementById('route-log');
+          const row = table.insertRow();
+
+          row.insertCell(0).innerText = 'ROUTE' + (table.rows.length + 1);
+          row.insertCell(1).innerText = startLocation;
+          row.insertCell(2).innerText = endLocation;
+          row.insertCell(3).innerText = estimatedTime;
+          row.insertCell(4).innerText = distance;
+          row.insertCell(5).innerText = routeStatus;
+
+          // Clear form fields
+          document.getElementById('route-form').reset();
+        } else {
+          alert('Please fill in all fields.');
+        }
+      }
+    </script>
+  </body>
+</html>

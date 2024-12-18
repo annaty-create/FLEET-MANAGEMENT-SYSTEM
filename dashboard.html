@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fleet Management Dashboard</title>
+    <link rel="stylesheet" href="/public/css/dashboard.css" />
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
+      async
+      defer
+    ></script>
+  </head>
+  <body>
+    <!-- Sidebar Navigation -->
+    <aside id="sidebar">
+      <h2>Fleet Management</h2>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#gps-tracking">GPS Tracking</a></li>
+          <li><a href="driver.html">Driver Performance</a></li>
+          <li><a href="#route-optimization">Route Optimization</a></li>
+          <li><a href="maintenance.html">Maintenance</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Dashboard Content -->
+    <main id="main-content">
+      <header>
+        <h1>Fleet Management Dashboard</h1>
+      </header>
+
+      <!-- Dashboard Overview -->
+      <section id="overview">
+        <div class="dashboard-cards">
+          <div class="card">
+            <h3>Total Vehicles</h3>
+            <p>45</p>
+          </div>
+          <div class="card">
+            <h3>Active Drivers</h3>
+            <p>38</p>
+          </div>
+          <div class="card">
+            <h3>Maintenance Tasks</h3>
+            <p>7 Scheduled</p>
+          </div>
+          <div class="card">
+            <h3>Optimal Routes</h3>
+            <p>15 Planned</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Live GPS Tracking -->
+      <section id="gps-tracking">
+        <h2>Live GPS Location</h2>
+        <div id="map">Loading map...</div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2024 Fleet Management Inc. All rights reserved.</p>
+    </footer>
+
+    <script src="assets/js/dashboard.js"></script>
+  </body>
+</html>
